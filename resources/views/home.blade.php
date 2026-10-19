@@ -156,7 +156,25 @@
 
                 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Form Pertanyaan</h5>
+        <h5 class="card-title mb-3">Form Pertanyaan</h5>
+                    @if (session('success'))
+                        {{--
+                            Kita gunakan reflash() agar data session (nama, email, dll)
+                            tidak dihapus dan tetap bisa dipakai di halaman /question/response
+                        --}}
+                        @php session()->reflash(); @endphp
+
+                        <div class="alert alert-info">
+                            Terimakasih <strong>{{ session('nama') }}</strong>! Pertanyaan ini: <strong>{{ session('pertanyaan') }}</strong> akan segera direspon melalui email <strong>{{ session('email') }}</strong>
+                        </div>
+
+                        {{-- Script untuk otomatis pindah halaman setelah 3 detik --}}
+                        <script>
+                            setTimeout(function() {
+                                window.location.href = "{{ route('question.response') }}";
+                            }, 3000); // 3000 milidetik = 3 detik
+                        </script>
+                    @endif
 
         <form action="{{ route('question.store') }}" method="POST">
             @if ($errors->any())
@@ -168,7 +186,7 @@
             </ul>
         </div>
             @endif
-            
+
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
