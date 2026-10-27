@@ -88,5 +88,36 @@ class PelangganController extends Controller
     return redirect()->route('pelanggan.index')->with('success', 'Data berhasil dihapus');
         }
 
+
+
+
+public function cv(string $id)
+{
+    $pelanggan = Pelanggan::findOrFail($id);
+
+    $data = [
+        'pelanggan_id' => $pelanggan->pelanggan_id,
+
+        'username' => trim(
+            $pelanggan->first_name . ' ' . $pelanggan->last_name
+        ),
+
+        'profesi' => 'Profil CV Pelanggan',
+
+        'tentang' => 'Jenis kelamin: ' . $pelanggan->gender
+            . ' | Tanggal lahir: ' . $pelanggan->birthday,
+
+        'email' => $pelanggan->email,
+        'telepon' => $pelanggan->phone,
+
+        'list_pendidikan' => [],
+        'keahlian' => [],
+    ];
+
+    return view('home', $data);
+}
+
+
+
     }
 

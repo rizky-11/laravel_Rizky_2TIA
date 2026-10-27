@@ -405,6 +405,18 @@
                                                         Hapus
                                                     </button>
                                                 </form>
+
+<div class="d-flex justify-content-end gap-2 mb-3">
+
+<a href="{{ route('pelanggan.cv', $item->pelanggan_id) }}"
+   class="btn btn-success btn-sm"
+   target="_blank">
+    <i class="fas fa-id-card"></i>
+    Lihat CV
+</a>
+
+</div>
+
                                             </td>
                                         </tr>
                                     @endforeach

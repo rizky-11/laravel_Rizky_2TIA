@@ -1,286 +1,292 @@
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Laravel App</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        .navbar-brand {
-            font-weight: bold;
-        }
+    <title>CV {{ $username }}</title>
 
-        .navbar {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    <link rel="icon" type="image/x-icon"
+          href="{{ asset('cv/assets/img/favicon.ico') }}">
 
-        .hero-section {
-            background-color: #3187e9;
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-        }
+    <link href="https://use.fontawesome.com/releases/v6.3.0/css/all.css"
+          rel="stylesheet">
 
-        .hero-section h1 {
-            font-size: 3rem;
-        }
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+          rel="stylesheet">
 
-        .card {
-            margin-top: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+          rel="stylesheet">
 
-        .footer {
-            margin-top: 50px;
-            padding: 20px 0;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
+<link href="{{ asset('cv/styles.css') }}" rel="stylesheet"></head>
 
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #6c757d;
-        }
-    </style>
-</head>
+<body id="page-top">
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">My Laravel App</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+         id="sideNav">
+
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">{{ $username }}</span>
+
+            <span class="d-none d-lg-block">
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+src="{{ asset('cv/profile.jpg') }}"
+                     alt="Foto {{ $username }}">
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false"
+                aria-label="Buka navigasi">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">
+                        Profil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#experience">
+                        Pengalaman
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#education">
+                        Pendidikan
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#skills">
+                        Keahlian
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#interests">
+                        Minat
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">
+                        Kontak
+                    </a>
+                </li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <h1 class="display-6 mb-2">{{ $username }}</h1>
-            <p class="lead mb-0">{{ $last_login }}</p>
-        </div>
-    </section>
+    <!-- Konten CV -->
+    <div class="container-fluid p-0">
 
-    <!-- Content Section -->
-    <section id="content" class="container ">
-        <div class="row">
-            <div class="col-md-6">
-                {{-- About --}}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">About Our Application</h5>
-                        <p class="card-text">Our application provides a clean and intuitive interface, allowing users to navigate easily and perform tasks efficiently. Built with Laravel and Bootstrap, it offers flexibility and responsiveness.</p>
-                        <a href="#" class="btn btn-primary">Explore More</a>
-                    </div>
+        <!-- Profil -->
+        <section class="resume-section" id="about">
+            <div class="resume-section-content">
+
+                <h1 class="mb-0">
+                    {{ $username }}
+                </h1>
+
+                <div class="subheading mb-5">
+                    {{ $profesi }}
                 </div>
 
-                <!-- Accordion -->
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                About Us
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                We are a tech company that specializes in web development solutions.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                Our Services
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                We offer web development, SEO optimization, and digital marketing services.
-                            </div>
-                        </div>
-                    </div>
+                <p class="lead mb-5">
+                    {{ $tentang }}
+                </p>
+
+                <div class="social-icons">
+                    <a class="social-icon"
+                       href="https://github.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a class="social-icon"
+                       href="https://linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
 
-                {{-- Badge, List & Card --}}
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Badges, List, &amp; Card</h3>
-                        <div class="mb-3">
-                            <span class="badge text-bg-primary">Web Dev</span>
-                            <span class="badge text-bg-success">Laravel</span>
-                            <span class="badge text-bg-danger">Bootstrap</span>
-                        </div>
-                        <ul class="list-group mb-3">
-                            <li class="list-group-item">Item Satu</li>
-                            <li class="list-group-item">Item Dua</li>
-                            <li class="list-group-item">Item Tiga</li>
-                        </ul>
-                        <div class="p-3 border rounded">
-                            <strong>Div umum</strong> — ini hanya <em>container</em> untuk konten bebas.
-                        </div>
-                        <p class="text-muted small mt-3 mb-0">
-                            Gunakan <code>.card</code> untuk konten yang butuh border & sedikit efek shadow.
-                        </p>
-                    </div>
-                </div>
-            </div>
+<div class="cv-actions mt-4">
 
-            <div class="col-md-6">
 
-                <div class="card">
-    <div class="card-body">
-        <h5 class="card-title mb-3">Form Pertanyaan</h5>
-                    @if (session('success'))
-                        {{--
-                            Kita gunakan reflash() agar data session (nama, email, dll)
-                            tidak dihapus dan tetap bisa dipakai di halaman /question/response
-                        --}}
-                        @php session()->reflash(); @endphp
+<div class="cv-actions mt-4">
 
-                        <div class="alert alert-info">
-                            Terimakasih <strong>{{ session('nama') }}</strong>! Pertanyaan ini: <strong>{{ session('pertanyaan') }}</strong> akan segera direspon melalui email <strong>{{ session('email') }}</strong>
-                        </div>
+<a href="{{ route('pelanggan.edit', ['pelanggan' => $pelanggan_id]) }}"
+   class="btn btn-primary btn-edit-cv">
+    <i class="fas fa-pen-to-square me-2"></i>
+    Edit CV
+</a>
 
-                        {{-- Script untuk otomatis pindah halaman setelah 3 detik --}}
-                        <script>
-                            setTimeout(function() {
-                                window.location.href = "{{ route('question.response') }}";
-                            }, 3000); // 3000 milidetik = 3 detik
-                        </script>
-                    @endif
-
-        <form action="{{ route('question.store') }}" method="POST">
-            @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-            @endif
-
-            @csrf
-            <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" name="nama">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email">
-            </div>
-            <div class="mb-3">
-                <label for="pertanyaan" class="form-label">Pertanyaan</label>
-                <textarea class="form-control" rows="4" name="pertanyaan"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Kirim Pertanyaan</button>
-        </form>
-    </div>
+    <a href="{{ route('pelanggan.index') }}"
+       class="btn btn-outline-secondary btn-back-cv">
+        <i class="fas fa-arrow-left me-2"></i>
+        Kembali ke Data Pelanggan
+    </a>
 </div>
-                {{-- Alerts --}}
-                <div class="card ">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Alerts</h3>
-                        <div class="alert alert-primary mb-2">Informational alert</div>
-                        <div class="alert alert-success mb-2">Success alert</div>
-                        <div class="alert alert-warning mb-2">Warning alert</div>
-                        <div class="alert alert-danger mb-0">Danger alert</div>
-                    </div>
-                </div>
 
-                {{-- Buttons --}}
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Buttons</h3>
-                        <div class="d-flex flex-wrap gap-2">
-                            <button class="btn btn-primary">Primary</button>
-                            <button class="btn btn-secondary">Secondary</button>
-                            <button class="btn btn-outline-primary">Outline</button>
-                            <button class="btn btn-success">Success</button>
-                            <button class="btn btn-danger">Danger</button>
-                        </div>
-                    </div>
-                </div>
 
-                {{-- Table --}}
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="h5 mb-3">Table</h3>
-                        <div class="table-responsive">
-                            <table class="table align-middle">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Role</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Ani</td>
-                                        <td>Admin</td>
-                                        <td><span class="badge text-bg-success">Active</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Budi</td>
-                                        <td>User</td>
-                                        <td><span class="badge text-bg-secondary">Inactive</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Cici</td>
-                                        <td>Editor</td>
-                                        <td><span class="badge text-bg-warning">Pending</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <p class="text-muted small mb-0">Tambahkan <code>.table-striped</code> atau <code>.table-bordered</code> sesuai kebutuhan.</p>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; {{date('Y')}} My Laravel App. All Rights Reserved.</p>
-        </div>
-    </footer>
+        </section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <hr class="m-0">
+
+        <!-- Pengalaman -->
+        <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+
+                <h2 class="mb-5">Pengalaman dan Proyek</h2>
+
+                <div class="mb-5">
+                    <h3 class="mb-0">Website CV Pribadi</h3>
+                    <div class="subheading mb-3">
+                        Proyek Akademik
+                    </div>
+                    <p>
+                        Membuat website CV menggunakan Laravel,
+                        PHP, HTML, CSS, dan Bootstrap sebagai
+                        bagian dari pembelajaran pengembangan web.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="mb-0">Pengembangan Aplikasi Web</h3>
+                    <div class="subheading mb-3">
+                        Pembelajaran Mandiri
+                    </div>
+                    <p>
+                        Mempelajari dasar pengembangan aplikasi,
+                        pengelolaan database, dan pemrograman web.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <!-- Pendidikan -->
+        <section class="resume-section" id="education">
+            <div class="resume-section-content">
+
+                <h2 class="mb-5">Pendidikan</h2>
+
+                @foreach ($list_pendidikan as $pendidikan)
+                    <div class="mb-4">
+                        <h3 class="mb-0">{{ $pendidikan }}</h3>
+                        <div class="subheading mb-2">
+                            Riwayat Pendidikan
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <!-- Keahlian -->
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+
+                <h2 class="mb-5">Keahlian</h2>
+
+                <div class="subheading mb-3">
+                    Teknologi dan Kemampuan
+                </div>
+
+                <ul class="fa-ul mb-0">
+                    @foreach ($keahlian as $skill)
+                        <li class="mb-2">
+                            <span class="fa-li">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            {{ $skill }}
+                        </li>
+                    @endforeach
+                </ul>
+
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <!-- Minat -->
+        <section class="resume-section" id="interests">
+            <div class="resume-section-content">
+
+                <h2 class="mb-5">Minat</h2>
+
+                <p>
+                    Saya tertarik pada teknologi informasi,
+                    pengembangan website, pemrograman, dan
+                    pengembangan aplikasi menggunakan Laravel.
+                </p>
+
+                <p class="mb-0">
+                    Saya juga ingin terus meningkatkan kemampuan
+                    teknis, mempelajari teknologi baru, dan
+                    mengembangkan proyek yang bermanfaat.
+                </p>
+
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <!-- Kontak -->
+        <section class="resume-section" id="contact">
+            <div class="resume-section-content">
+
+                <h2 class="mb-5">Kontak</h2>
+
+                <p>
+                    <i class="fas fa-envelope me-2"></i>
+                    Email: emailkamu@example.com
+                </p>
+
+                <p>
+                    <i class="fas fa-phone me-2"></i>
+                    Telepon: Isi nomor telepon kamu
+                </p>
+
+                <p>
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    Alamat: Isi kota tempat tinggal kamu
+                </p>
+
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <!-- Footer -->
+        <footer class="p-4 text-center">
+            <p class="mb-1">
+                &copy; {{ date('Y') }} {{ $username }}
+            </p>
+            <small>
+                Dibuat menggunakan Laravel
+            </small>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="{{ asset('cv/scripts.js') }}"></script>
 </body>
-
 </html>
