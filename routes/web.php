@@ -7,6 +7,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\CvController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home.page');
@@ -19,6 +20,8 @@ Route::get('/pelanggan/{id}/cv', [
 
 // CRUD pelanggan
 Route::resource('pelanggan', PelangganController::class);
+
+Route::resource('user', UserController::class);
 
 // CRUD profil CV
 Route::resource('cv', CvController::class);

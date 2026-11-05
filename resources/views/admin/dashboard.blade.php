@@ -113,6 +113,17 @@
 		        <span class="sidebar-text">Pelanggan</span>
 		    </a>
 		</li>
+        
+		<li class="nav-item">
+		    <a href="{{route('user.index')}}" class="nav-link">
+		        <span class="sidebar-icon">
+		            <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+		                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+		            </svg>
+		        </span>
+		        <span class="sidebar-text">User</span>
+		    </a>
+		</li>
 
                 <li class="nav-item">
                     <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#submenu-app">
