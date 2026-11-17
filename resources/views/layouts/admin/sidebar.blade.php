@@ -13,6 +13,7 @@
         </div>
     </nav>
 
+
     <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
         <div class="sidebar-inner px-4 pt-3">
             <div
@@ -72,7 +73,7 @@
                 </li>
                 <!-- Tambahkan blok kode ini -->
                 <li class="nav-item  {{ request()->routeIs('pelanggan.*') ? 'active' : '' }} ">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('pelanggan.index') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +87,9 @@
                     </a>
                 </li>
 
+
                 <li class="nav-item  {{ request()->routeIs('user.*') ? 'active' : '' }} ">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('user.index') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -100,6 +102,8 @@
                         <span class="sidebar-text">User</span>
                     </a>
                 </li>
+
+
 
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
