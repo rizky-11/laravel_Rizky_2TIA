@@ -8,8 +8,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home.page');
 
 // Route khusus CV pelanggan, letakkan sebelum resource
@@ -26,7 +28,7 @@ Route::resource('user', UserController::class);
 // CRUD profil CV
 Route::resource('cv', CvController::class);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
+Route::get('/', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 Route::post('/question/store', [QuestionController::class, 'store'])
@@ -34,3 +36,10 @@ Route::post('/question/store', [QuestionController::class, 'store'])
 
 Route::get('/question/response', [QuestionController::class, 'response'])
     ->name('question.response');
+
+
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('auth.logout');
